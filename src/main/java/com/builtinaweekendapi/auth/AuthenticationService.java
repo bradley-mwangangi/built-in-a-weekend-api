@@ -1,13 +1,13 @@
 package com.builtinaweekendapi.auth;
 
-import com.builtinaweekendapi.config.JwtService;
+import com.builtinaweekendapi.security.jwt.JwtService;
 import com.builtinaweekendapi.exceptions.AlreadyExistsException;
 import com.builtinaweekendapi.model.enums.Role;
-import com.builtinaweekendapi.model.users.User;
+import com.builtinaweekendapi.actors.User;
 import com.builtinaweekendapi.repository.UserRepository;
-import com.builtinaweekendapi.token.Token;
-import com.builtinaweekendapi.token.TokenRepository;
-import com.builtinaweekendapi.token.TokenType;
+import com.builtinaweekendapi.model.Token;
+import com.builtinaweekendapi.repository.TokenRepository;
+import com.builtinaweekendapi.model.enums.TokenType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

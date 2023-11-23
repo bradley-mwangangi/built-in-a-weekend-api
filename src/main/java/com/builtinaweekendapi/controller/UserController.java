@@ -1,7 +1,7 @@
 package com.builtinaweekendapi.controller;
 
 import com.builtinaweekendapi.auth.ChangePasswordRequest;
-import com.builtinaweekendapi.model.users.User;
+import com.builtinaweekendapi.actors.User;
 import com.builtinaweekendapi.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.builtinaweekendapi.entity;
+package com.builtinaweekendapi.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;

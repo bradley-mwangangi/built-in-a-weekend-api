@@ -1,4 +1,4 @@
-package com.builtinaweekendapi.users;
+package com.builtinaweekendapi.actors;
 
 import com.builtinaweekendapi.model.BlogPost;
 import com.builtinaweekendapi.model.SocialLinks;

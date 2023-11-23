@@ -1,6 +1,6 @@
-package com.builtinaweekendapi.config;
+package com.builtinaweekendapi.security.config;
 
-import com.builtinaweekendapi.auditing.ApplicationAuditAware;
+import com.builtinaweekendapi.security.ApplicationAuditAware;
 import com.builtinaweekendapi.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;

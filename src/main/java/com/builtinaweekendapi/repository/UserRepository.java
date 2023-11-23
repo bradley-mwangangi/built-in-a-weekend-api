@@ -1,6 +1,6 @@
 package com.builtinaweekendapi.repository;
 
-import com.builtinaweekendapi.model.users.User;
+import com.builtinaweekendapi.actors.User;
 import lombok.NonNull;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

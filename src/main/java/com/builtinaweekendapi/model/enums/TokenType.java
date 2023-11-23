@@ -1,4 +1,4 @@
-package com.builtinaweekendapi.entity.enums;
+package com.builtinaweekendapi.model.enums;
 
 public enum TokenType {
     BEARER

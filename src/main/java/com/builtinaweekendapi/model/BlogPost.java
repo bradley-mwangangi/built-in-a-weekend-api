@@ -1,6 +1,6 @@
-package com.builtinaweekendapi.entity;
+package com.builtinaweekendapi.model;
 
-import com.builtinaweekendapi.users.User;
+import com.builtinaweekendapi.actors.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AccessLevel;

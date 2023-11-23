@@ -1,7 +1,7 @@
 package com.builtinaweekendapi.service.interfaze;
 
 import com.builtinaweekendapi.auth.ChangePasswordRequest;
-import com.builtinaweekendapi.model.users.User;
+import com.builtinaweekendapi.actors.User;
 
 import javax.security.auth.login.CredentialException;
 import java.security.Principal;

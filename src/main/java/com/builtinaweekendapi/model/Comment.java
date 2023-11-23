@@ -1,6 +1,6 @@
-package com.builtinaweekendapi.entity;
+package com.builtinaweekendapi.model;
 
-import com.builtinaweekendapi.users.User;
+import com.builtinaweekendapi.actors.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;

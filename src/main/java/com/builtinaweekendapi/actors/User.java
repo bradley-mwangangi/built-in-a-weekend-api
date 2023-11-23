@@ -1,4 +1,4 @@
-package com.builtinaweekendapi.users;
+package com.builtinaweekendapi.actors;
 
 import com.builtinaweekendapi.model.BaseEntity;
 import com.builtinaweekendapi.model.Comment;

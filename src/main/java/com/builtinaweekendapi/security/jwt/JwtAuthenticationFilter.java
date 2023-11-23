@@ -1,6 +1,6 @@
-package com.builtinaweekendapi.security;
+package com.builtinaweekendapi.security.jwt;
 
-import com.builtinaweekendapi.model.token.TokenRepository;
+import com.builtinaweekendapi.repository.TokenRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

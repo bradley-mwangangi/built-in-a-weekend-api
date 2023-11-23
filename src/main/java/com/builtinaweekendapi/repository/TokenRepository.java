@@ -1,5 +1,6 @@
-package com.builtinaweekendapi.domain.token;
+package com.builtinaweekendapi.repository;
 
+import com.builtinaweekendapi.model.Token;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

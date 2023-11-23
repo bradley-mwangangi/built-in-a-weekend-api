@@ -1,4 +1,4 @@
-package com.builtinaweekendapi.domain.dto;
+package com.builtinaweekendapi.auth;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
