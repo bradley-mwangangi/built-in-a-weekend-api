@@ -1,4 +1,4 @@
-package com.builtinaweekendapi.model.enums;
+package com.builtinaweekendapi.entity.enums;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

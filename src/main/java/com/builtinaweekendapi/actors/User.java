@@ -1,9 +1,9 @@
-package com.builtinaweekendapi.model.users;
+package com.builtinaweekendapi.users;
 
 import com.builtinaweekendapi.model.BaseEntity;
 import com.builtinaweekendapi.model.Comment;
 import com.builtinaweekendapi.model.enums.Role;
-import com.builtinaweekendapi.token.Token;
+import com.builtinaweekendapi.model.Token;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;

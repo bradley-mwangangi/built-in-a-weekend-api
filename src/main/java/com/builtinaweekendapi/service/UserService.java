@@ -2,11 +2,14 @@ package com.builtinaweekendapi.service;
 
 import com.builtinaweekendapi.auth.ChangePasswordRequest;
 import com.builtinaweekendapi.exceptions.NotFoundException;
-import com.builtinaweekendapi.model.users.User;
+import com.builtinaweekendapi.actors.User;
 import com.builtinaweekendapi.repository.UserRepository;
 import com.builtinaweekendapi.service.interfaze.IUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +18,7 @@ import java.security.Principal;
 
 @Service
 @RequiredArgsConstructor
-public class UserService implements IUserService {
+public class UserService implements IUserService, UserDetailsService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
@@ -41,4 +44,10 @@ public class UserService implements IUserService {
         userRepository.save(user);
     }
 
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        return userRepository.findUserByEmail(email)
+                .orElseThrow(() ->
+                        new UsernameNotFoundException(String.format("User %s not found", email)));
+    }
 }

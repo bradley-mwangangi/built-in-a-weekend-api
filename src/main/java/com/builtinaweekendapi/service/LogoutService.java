@@ -1,6 +1,6 @@
-package com.builtinaweekendapi.config;
+package com.builtinaweekendapi.service;
 
-import com.builtinaweekendapi.token.TokenRepository;
+import com.builtinaweekendapi.domain.token.TokenRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;

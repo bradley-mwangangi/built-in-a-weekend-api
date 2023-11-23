@@ -65,7 +65,7 @@ public class SecurityConfig {
                             .requestMatchers(HttpMethod.PATCH, "/api/v1/admin/**").hasAuthority(RESOURCE_UPDATE.name())
                             .requestMatchers(HttpMethod.DELETE, "/api/v1/admin/**").hasAuthority(RESOURCE_DELETE.name())
                             .anyRequest()
-                            .authenticated()
+                            .permitAll()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(STATELESS))
                 .authenticationProvider(authProvider)

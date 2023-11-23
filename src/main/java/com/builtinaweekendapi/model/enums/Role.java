@@ -1,4 +1,4 @@
-package com.builtinaweekendapi.model.enums;
+package com.builtinaweekendapi.entity.enums;
 
 import lombok.Getter;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static com.builtinaweekendapi.model.enums.Permission.*;
+import static com.builtinaweekendapi.entity.enums.Permission.*;
 
 @Getter
 public enum Role {

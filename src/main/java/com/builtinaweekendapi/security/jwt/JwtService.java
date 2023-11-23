@@ -1,4 +1,4 @@
-package com.builtinaweekendapi.config;
+package com.builtinaweekendapi.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
