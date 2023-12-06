@@ -1,7 +1,7 @@
 package com.builtinaweekendapi.security.config;
 
 import com.builtinaweekendapi.security.ApplicationAuditAware;
-import com.builtinaweekendapi.repository.UserRepository;
+import com.builtinaweekendapi.blogActors.user.IUserRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
@@ -20,7 +20,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @RequiredArgsConstructor
 public class ApplicationConfig {
 
-    private final UserRepository userRepository;
+    private final IUserRepository IUserRepository;
 
     @Bean
     public AuditorAware<Long> auditorAware() {
@@ -43,7 +43,7 @@ public class ApplicationConfig {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        return username -> userRepository.findUserByEmail(username)
+        return username -> IUserRepository.findUserByEmail(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 

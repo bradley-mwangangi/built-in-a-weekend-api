@@ -2,12 +2,12 @@ package com.builtinaweekendapi.auth;
 
 import com.builtinaweekendapi.security.jwt.JwtService;
 import com.builtinaweekendapi.exceptions.AlreadyExistsException;
-import com.builtinaweekendapi.model.enums.Role;
-import com.builtinaweekendapi.actors.User;
-import com.builtinaweekendapi.repository.UserRepository;
-import com.builtinaweekendapi.model.Token;
-import com.builtinaweekendapi.repository.TokenRepository;
-import com.builtinaweekendapi.model.enums.TokenType;
+import com.builtinaweekendapi.blogActors.user.enums.Role;
+import com.builtinaweekendapi.blogActors.user.User;
+import com.builtinaweekendapi.blogActors.user.IUserRepository;
+import com.builtinaweekendapi.token.Token;
+import com.builtinaweekendapi.token.TokenRepository;
+import com.builtinaweekendapi.token.TokenType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -27,14 +27,14 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class AuthenticationService {
 
-    private final UserRepository userRepository;
+    private final IUserRepository IUserRepository;
     private final TokenRepository tokenRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authManager;
 
     public AuthenticationResponse register(RegisterRequest registerRequest) {
-        if (userRepository.existsByEmail(registerRequest.getEmail())) {
+        if (IUserRepository.existsByEmail(registerRequest.getEmail())) {
             throw new AlreadyExistsException("Email", registerRequest.getEmail());
         }
 
@@ -47,7 +47,7 @@ public class AuthenticationService {
         Set<Role> roles = new HashSet<>(Collections.singletonList(Role.USER));
         user.setRoles(roles);
 
-        var savedUser = userRepository.save(user);
+        var savedUser = IUserRepository.save(user);
         var jwtToken = jwtService.generateToken(user);
         var refreshToken = jwtService.generateRefreshToken(user);
 
@@ -67,7 +67,7 @@ public class AuthenticationService {
                 )
         );
 
-        var user = userRepository.findUserByEmail(authRequest.getEmail())
+        var user = IUserRepository.findUserByEmail(authRequest.getEmail())
                 .orElseThrow();
         var jwtToken = jwtService.generateToken(user);
         var refreshToken = jwtService.generateRefreshToken(user);
@@ -122,7 +122,7 @@ public class AuthenticationService {
         userEmail = jwtService.extractUsername(refreshToken);
 
         if (userEmail != null) {
-            var user = this.userRepository.findUserByEmail(userEmail)
+            var user = this.IUserRepository.findUserByEmail(userEmail)
                     .orElseThrow();
 
             if (jwtService.isTokenValid(refreshToken, user)) {

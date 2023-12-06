@@ -1,4 +1,4 @@
-package com.builtinaweekendapi.model.enums;
+package com.builtinaweekendapi.blogActors.user.enums;
 
 import lombok.Getter;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -7,8 +7,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static com.builtinaweekendapi.model.enums.Permission.*;
-
 @Getter
 public enum Role {
 
@@ -16,9 +14,9 @@ public enum Role {
             // guest view. can only read posts and comments
             Set.of(
                     // has only post::read permission
-                    POST_READ,
+                    Permission.POST_READ,
                     // has only comment::read permission
-                    COMMENT_READ
+                    Permission.COMMENT_READ
             )
     ),
     USER(
@@ -26,9 +24,9 @@ public enum Role {
             // permissions LIMITED to OWN account
             Set.of(
                     // has only post::read permission
-                    POST_READ,
+                    Permission.POST_READ,
                     // comment::create:read:update:delete
-                    COMMENT_CRUD
+                    Permission.COMMENT_CRUD
             )
     ),
     CONTRIBUTOR(
@@ -36,9 +34,9 @@ public enum Role {
             // permissions LIMITED to OWN account
             Set.of(
                     // post::create:read:update:delete, post::submit_for_review
-                    POST_CRUD, POST_SUBMIT_for_REVIEW,
+                    Permission.POST_CRUD, Permission.POST_SUBMIT_for_REVIEW,
                     // comment::create:read:update:delete
-                    COMMENT_CRUD
+                    Permission.COMMENT_CRUD
             )
     ),
     AUTHOR(
@@ -46,9 +44,9 @@ public enum Role {
             // permissions LIMITED to OWN account
             Set.of(
                     // all post-related permissions
-                    POST_CRUD, POST_SUBMIT_for_REVIEW, POST_PUBLISH,
+                    Permission.POST_CRUD, Permission.POST_SUBMIT_for_REVIEW, Permission.POST_PUBLISH,
                     // comment::create:read:update:delete
-                    COMMENT_CRUD
+                    Permission.COMMENT_CRUD
             )
     ),
     MODERATOR(
@@ -56,9 +54,9 @@ public enum Role {
             // permissions EXTENDED to OTHER user accounts
             Set.of(
                     // POST_CRUD except CREATE, post::submit_for_review, post::publish
-                    POST_READ, POST_UPDATE, POST_DELETE, POST_SUBMIT_for_REVIEW, POST_PUBLISH,
+                    Permission.POST_READ, Permission.POST_UPDATE, Permission.POST_DELETE, Permission.POST_SUBMIT_for_REVIEW, Permission.POST_PUBLISH,
                     // comment::create:read:update:delete
-                    COMMENT_CRUD
+                    Permission.COMMENT_CRUD
             )
     ),
     REVIEWER(
@@ -66,9 +64,9 @@ public enum Role {
             // permissions EXTENDED to OTHER user accounts
             Set.of(
                     // all post-related permissions
-                    POST_CRUD, POST_SUBMIT_for_REVIEW, POST_PUBLISH,
+                    Permission.POST_CRUD, Permission.POST_SUBMIT_for_REVIEW, Permission.POST_PUBLISH,
                     // comment::create:read:update:delete
-                    COMMENT_CRUD
+                    Permission.COMMENT_CRUD
             )
     ),
     EDITOR(
@@ -76,19 +74,19 @@ public enum Role {
             // permissions EXTENDED to OTHER user accounts
             Set.of(
                     // all post-related permissions
-                    POST_CRUD, POST_SUBMIT_for_REVIEW, POST_PUBLISH,
+                    Permission.POST_CRUD, Permission.POST_SUBMIT_for_REVIEW, Permission.POST_PUBLISH,
                     // comment::create:read:update:delete
-                    COMMENT_CRUD
+                    Permission.COMMENT_CRUD
             )
     ),
     SUPER_ADMIN(
             // manages user accounts, blogposts, and comments
             // permissions EXTENDED to OTHER user accounts
             Set.of(
-                    RESOURCE_CREATE,
-                    RESOURCE_READ,
-                    RESOURCE_UPDATE,
-                    RESOURCE_DELETE
+                    Permission.RESOURCE_CREATE,
+                    Permission.RESOURCE_READ,
+                    Permission.RESOURCE_UPDATE,
+                    Permission.RESOURCE_DELETE
             )
     );
 

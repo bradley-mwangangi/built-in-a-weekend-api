@@ -1,6 +1,6 @@
 package com.builtinaweekendapi.security;
 
-import com.builtinaweekendapi.actors.User;
+import com.builtinaweekendapi.blogActors.user.User;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;

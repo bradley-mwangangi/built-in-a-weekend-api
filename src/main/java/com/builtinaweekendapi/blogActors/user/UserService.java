@@ -1,10 +1,7 @@
-package com.builtinaweekendapi.service;
+package com.builtinaweekendapi.blogActors.user;
 
 import com.builtinaweekendapi.auth.ChangePasswordRequest;
 import com.builtinaweekendapi.exceptions.NotFoundException;
-import com.builtinaweekendapi.actors.User;
-import com.builtinaweekendapi.repository.UserRepository;
-import com.builtinaweekendapi.service.interfaze.IUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,12 +17,12 @@ import java.security.Principal;
 @RequiredArgsConstructor
 public class UserService implements IUserService, UserDetailsService {
 
-    private final UserRepository userRepository;
+    private final IUserRepository IUserRepository;
     private final PasswordEncoder passwordEncoder;
 
     public User getUserById(Long userId) {
         //TODO - consider using JpaRepository getReferenceById(ID id)
-        return userRepository.findUserById(userId)
+        return IUserRepository.findUserById(userId)
                 .orElseThrow(() -> new NotFoundException("User", userId));
     }
 
@@ -41,12 +38,12 @@ public class UserService implements IUserService, UserDetailsService {
         }
 
         user.setPassword(passwordEncoder.encode(request.getNewPassword()));
-        userRepository.save(user);
+        IUserRepository.save(user);
     }
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return userRepository.findUserByEmail(email)
+        return IUserRepository.findUserByEmail(email)
                 .orElseThrow(() ->
                         new UsernameNotFoundException(String.format("User %s not found", email)));
     }

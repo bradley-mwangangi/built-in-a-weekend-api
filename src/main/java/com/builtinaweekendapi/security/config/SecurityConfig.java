@@ -15,8 +15,8 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
 
-import static com.builtinaweekendapi.model.enums.Permission.*;
-import static com.builtinaweekendapi.model.enums.Role.*;
+import static com.builtinaweekendapi.blogActors.user.enums.Permission.*;
+import static com.builtinaweekendapi.blogActors.user.enums.Role.*;
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
 
 @Configuration

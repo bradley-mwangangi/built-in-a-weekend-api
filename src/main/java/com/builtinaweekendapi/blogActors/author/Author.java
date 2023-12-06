@@ -1,7 +1,7 @@
-package com.builtinaweekendapi.actors;
+package com.builtinaweekendapi.blogActors.author;
 
-import com.builtinaweekendapi.model.BlogPost;
-import com.builtinaweekendapi.model.SocialLinks;
+import com.builtinaweekendapi.blogActors.user.User;
+import com.builtinaweekendapi.blogPost.BlogPost;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;

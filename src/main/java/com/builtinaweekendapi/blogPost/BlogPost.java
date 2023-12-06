@@ -1,6 +1,8 @@
-package com.builtinaweekendapi.model;
+package com.builtinaweekendapi.blogPost;
 
-import com.builtinaweekendapi.actors.User;
+import com.builtinaweekendapi.blogActors.user.User;
+import com.builtinaweekendapi.blogBase.BaseEntity;
+import com.builtinaweekendapi.blogComment.Comment;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AccessLevel;

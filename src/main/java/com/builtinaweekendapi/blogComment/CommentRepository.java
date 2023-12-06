@@ -1,6 +1,5 @@
-package com.builtinaweekendapi.repository;
+package com.builtinaweekendapi.blogComment;
 
-import com.builtinaweekendapi.model.Comment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.builtinaweekendapi.controller;
+package com.builtinaweekendapi.blogActors.admin;
 
 import io.swagger.v3.oas.annotations.Hidden;
 import org.springframework.security.access.prepost.PreAuthorize;

@@ -1,4 +1,4 @@
-package com.builtinaweekendapi.controller;
+package com.builtinaweekendapi.blogActors.manager;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/management")
 @Tag(name = "Management")
-public class ManagementController {
+public class ManagerController {
 
     @Operation(
             description = "GET endpoint for manager",

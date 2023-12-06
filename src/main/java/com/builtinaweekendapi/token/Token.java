@@ -1,7 +1,7 @@
-package com.builtinaweekendapi.model;
+package com.builtinaweekendapi.token;
 
-import com.builtinaweekendapi.model.enums.TokenType;
-import com.builtinaweekendapi.actors.User;
+import com.builtinaweekendapi.blogBase.BaseEntity;
+import com.builtinaweekendapi.blogActors.user.User;
 import jakarta.persistence.*;
 import lombok.*;
 

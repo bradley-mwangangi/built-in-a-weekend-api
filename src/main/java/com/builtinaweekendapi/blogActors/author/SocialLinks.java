@@ -1,6 +1,7 @@
-package com.builtinaweekendapi.model;
+package com.builtinaweekendapi.blogActors.author;
 
-import com.builtinaweekendapi.actors.User;
+import com.builtinaweekendapi.blogBase.BaseEntity;
+import com.builtinaweekendapi.blogActors.user.User;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
