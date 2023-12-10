@@ -4,6 +4,8 @@ import com.builtinaweekendapi.auth.ChangePasswordRequest;
 import com.builtinaweekendapi.exceptions.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -24,6 +26,12 @@ public class UserService implements IUserService, UserDetailsService {
         //TODO - consider using JpaRepository getReferenceById(ID id)
         return IUserRepository.findUserById(userId)
                 .orElseThrow(() -> new NotFoundException("User", userId));
+    }
+
+    public User getAuthenticatedUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String email = authentication.getName();
+        return IUserRepository.findUserByEmail(email).orElse(null);
     }
 
     public void changePassword(ChangePasswordRequest request, Principal connectedUser) throws CredentialException {

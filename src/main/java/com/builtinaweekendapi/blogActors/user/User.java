@@ -6,6 +6,7 @@ import com.builtinaweekendapi.blogActors.user.enums.Role;
 import com.builtinaweekendapi.token.Token;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -27,6 +28,7 @@ import java.util.Set;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "user_appuser")
+@JsonPropertyOrder({"first_name", "last_name", "email", "username", "roles"})
 public class User extends BaseEntity implements UserDetails {
 
     @Column(nullable = false)
@@ -68,6 +70,7 @@ public class User extends BaseEntity implements UserDetails {
     @OneToMany(mappedBy = "author")
     private List<Comment> commentList;
 
+    @JsonIgnore
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
 

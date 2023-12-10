@@ -23,8 +23,17 @@ public class UserController {
     }
 
     @GetMapping("/{userId}")
-    public ResponseEntity<User> getUser(@PathVariable("userId") Long userId) {
+    public ResponseEntity<User> getUserById(@PathVariable("userId") Long userId) {
         User foundUser = userService.getUserById(userId);
+        return new ResponseEntity<>(foundUser, HttpStatus.OK);
+    }
+
+    @GetMapping("/profile")
+    public ResponseEntity<User> getUser() {
+        User foundUser = userService.getAuthenticatedUser();
+        if (foundUser == null)
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+
         return new ResponseEntity<>(foundUser, HttpStatus.OK);
     }
 

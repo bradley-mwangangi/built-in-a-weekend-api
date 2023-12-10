@@ -4,6 +4,7 @@ import com.builtinaweekendapi.blogActors.user.User;
 import com.builtinaweekendapi.blogBase.BaseEntity;
 import com.builtinaweekendapi.blogComment.Comment;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Data;
@@ -17,6 +18,7 @@ import java.util.List;
 @Data
 @Table(name = "blogpost")
 @EqualsAndHashCode(callSuper = true)
+@JsonPropertyOrder({"title", "content"})
 public class BlogPost extends BaseEntity {
 
     @Column(nullable = false)
@@ -25,6 +27,7 @@ public class BlogPost extends BaseEntity {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String content;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "author_id", nullable = false)
     private User author;
